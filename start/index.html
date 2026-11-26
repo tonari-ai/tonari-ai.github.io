@@ -1,0 +1,463 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>となりのAI｜AIがはじめての方のための、マンツーマンAIレッスン</title>
+<meta name="description" content="はじめる気持ちがわかる講師が、となりに座るように。ChatGPTとGeminiを、あなたの仕事と暮らしで使えるようになるまで1対1で伴走します。週1回30分のオンラインレッスン。まずは30分・500円の体験レッスンから。">
+<meta property="og:title" content="となりのAI｜AIがはじめての方のための、マンツーマンAIレッスン">
+<meta property="og:description" content="はじめる気持ちがわかる講師が、となりに座るように。ChatGPTとGeminiを、あなたの仕事と暮らしで使えるようになるまで1対1で伴走します。週1回30分のオンラインレッスン。まずは30分・500円の体験レッスンから。">
+<meta property="og:image" content="../assets/ogp.png">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="icon" href="../assets/favicon-512.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#284866;--navy-d:#1c3550;--navy-dd:#14283d;--navy-50:#eef3f8;--navy-100:#dce6f0;
+  --orange:#ea7a1b;--orange-d:#cf6510;--orange-l:#f08a45;--orange-50:#fff4ea;--orange-100:#ffe3cc;
+  --cream:#faf6f0;--cream-d:#f3ece1;--paper:#fff;--ink:#22303d;--muted:#56636f;--line:#e8e1d5;
+  --r-s:10px;--r-m:16px;--r-l:24px;--r-xl:32px;
+  --sh-1:0 1px 2px rgba(28,53,80,.06),0 4px 12px rgba(28,53,80,.06);
+  --sh-2:0 2px 4px rgba(28,53,80,.06),0 16px 40px rgba(28,53,80,.12);
+  --sh-3:0 30px 70px rgba(20,40,61,.22);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Noto Sans JP",sans-serif;color:var(--ink);background:var(--cream);font-size:17px;line-height:1.95;letter-spacing:.02em;-webkit-font-smoothing:antialiased;word-break:auto-phrase;font-feature-settings:"palt" 0}
+h1,h2,h3,.disp{font-family:"Zen Maru Gothic","Noto Sans JP",sans-serif;color:var(--navy);line-height:1.45;font-feature-settings:"palt";letter-spacing:.04em}
+a{color:inherit}
+.ic{width:1em;height:1em;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+section{padding:112px 0;position:relative}
+.bg-white{background:var(--paper)}
+.bg-dots{background-color:var(--cream);background-image:radial-gradient(rgba(40,72,102,.09) 1px,transparent 1.2px);background-size:22px 22px}
+
+/* 見出しのかたまり（番号・キッカー・見出し・リード） */
+.sh{margin-bottom:56px;max-width:760px}
+.sh.center{margin-left:auto;margin-right:auto;text-align:center}
+.sh .no{display:flex;align-items:center;gap:12px;font-family:"Zen Maru Gothic",sans-serif;font-weight:700;font-size:14px;letter-spacing:.1em;color:var(--orange-d);margin-bottom:14px}
+.sh.center .no{justify-content:center}
+.sh .no b{font-size:13px;color:var(--navy);opacity:.45;letter-spacing:.08em}
+.sh .no::before{content:"";width:28px;height:2px;background:var(--orange);border-radius:2px}
+.sh.center .no::after{content:"";width:28px;height:2px;background:var(--orange);border-radius:2px}
+.sh h2{font-size:clamp(28px,4.2vw,42px);letter-spacing:.02em}
+.sh p{margin-top:18px;color:var(--muted);font-size:17px}
+.mk{background:linear-gradient(transparent 64%,var(--orange-100) 64%,var(--orange-100) 92%,transparent 92%);padding:0 .1em}
+.note{font-size:13px;color:var(--muted);margin-top:18px;letter-spacing:.02em}
+
+/* ボタン */
+.cta{display:inline-flex;align-items:center;justify-content:center;gap:12px;background:var(--orange);color:#fff;font-weight:700;font-size:19px;text-decoration:none;padding:20px 34px 20px 38px;border-radius:999px;box-shadow:0 10px 24px rgba(234,122,27,.32),inset 0 -3px 0 rgba(0,0,0,.12);transition:transform .15s,box-shadow .15s;letter-spacing:.06em}
+.cta .ic{font-size:22px;stroke-width:2.4;transition:transform .15s}
+.cta:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(234,122,27,.4),inset 0 -3px 0 rgba(0,0,0,.12)}
+.cta:hover .ic{transform:translateX(3px)}
+.micro{display:flex;align-items:center;gap:6px;font-size:13px;color:var(--muted);margin-top:12px}
+.micro .ic{color:var(--orange);stroke-width:2.4}
+.textlink{display:inline-flex;align-items:center;gap:6px;font-weight:700;color:var(--navy);text-decoration:none;border-bottom:1.5px solid currentColor;padding-bottom:2px;margin-top:22px;font-size:15px}
+
+/* ヘッダー */
+header{position:sticky;top:0;z-index:20;background:rgba(250,246,240,.88);backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid rgba(40,72,102,.08)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:70px}
+.logo{display:flex;align-items:center;gap:10px;font-family:"Zen Maru Gothic",sans-serif;font-weight:700;font-size:23px;color:var(--navy);text-decoration:none;letter-spacing:.06em}
+.logo i{width:30px;height:30px;border-radius:9px;background:var(--navy);display:grid;place-items:center;position:relative}
+.logo i::before,.logo i::after{content:"";position:absolute;width:9px;height:9px;border-radius:50%;top:11px}
+.logo i::before{left:6px;background:#fff}
+.logo i::after{left:15px;background:var(--orange)}
+.logo span{color:var(--orange)}
+nav{display:flex;align-items:center;gap:30px;font-size:15px;font-weight:500}
+nav a{text-decoration:none;color:var(--navy)}
+nav .hbtn{background:var(--orange);color:#fff;padding:10px 22px;border-radius:999px;font-weight:700}
+
+/* ファーストビュー */
+.hero{padding:72px 0 120px;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.08fr 1fr;gap:56px;align-items:center}
+.hero .eyebrow{display:inline-block;font-weight:700;font-size:15px;line-height:1.6;color:var(--navy);background:var(--paper);border:1px solid var(--navy-100);padding:10px 18px;border-radius:14px;margin-bottom:28px;box-shadow:var(--sh-1)}
+.hero h1{font-size:clamp(32px,4.5vw,54px);line-height:1.36;margin-bottom:28px;letter-spacing:.02em}
+.hero h1 .q{color:var(--navy);white-space:nowrap;margin-left:-.45em}
+.hero h1 em{font-style:normal;color:var(--orange-d);position:relative;white-space:nowrap}
+.hero h1 em::after{content:"";position:absolute;left:0;right:0;bottom:.02em;height:.16em;background:var(--orange-100);z-index:-1;border-radius:4px}
+.hero .lead{font-size:18px;color:var(--muted);max-width:30em;margin-bottom:30px}
+.facts{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:38px;list-style:none}
+.facts li{display:flex;align-items:center;gap:8px;font-size:15px;font-weight:700;color:var(--navy);background:var(--paper);padding:8px 16px 8px 12px;border-radius:999px;box-shadow:var(--sh-1)}
+.facts .ic{color:var(--orange);font-size:19px}
+
+.stage{position:relative;min-height:520px}
+.stage .blob{position:absolute;inset:-40px -140px -60px 30px;background:var(--navy);border-radius:56% 44% 48% 52%/52% 46% 54% 48%;}
+.stage .blob::after{content:"";position:absolute;right:16%;top:-30px;width:180px;height:180px;border-radius:50%;background:radial-gradient(circle,rgba(240,138,69,.55),rgba(240,138,69,0) 68%)}
+.win{z-index:1;position:relative;margin:54px 0 0 40px;background:var(--paper);border-radius:var(--r-l);box-shadow:var(--sh-3);overflow:hidden;max-width:440px}
+.win .bar{display:flex;align-items:center;gap:7px;padding:14px 18px;background:var(--cream);border-bottom:1px solid var(--line);font-size:12px;color:var(--muted)}
+.win .bar i{width:10px;height:10px;border-radius:50%;background:#e0d8cb}
+.win .bar span{margin-left:8px}
+.win .body{padding:22px 22px 18px}
+.bub{display:flex;gap:10px;margin-bottom:14px;align-items:flex-start}
+.bub .av{width:32px;height:32px;border-radius:50%;flex:none;display:grid;place-items:center;font-size:12px;font-weight:700;color:#fff}
+.bub.me{flex-direction:row-reverse}
+.bub.me .av{background:var(--orange)}
+.bub .av .ic{font-size:18px}
+.bub.ai .av{background:var(--navy)}
+.bub p{padding:12px 16px;border-radius:16px;font-size:14.5px;line-height:1.75}
+.bub.me p{background:var(--orange-50);border-top-right-radius:4px}
+.bub.ai p{background:var(--navy-50);border-top-left-radius:4px}
+.win .img-note{font-size:11px;color:#8a96a3;text-align:right}
+.coach{z-index:2;position:absolute;left:-6px;bottom:24px;display:flex;align-items:center;gap:12px;background:var(--paper);padding:12px 18px 12px 12px;border-radius:18px;box-shadow:var(--sh-2);font-size:14px;font-weight:700;color:var(--navy);max-width:270px;line-height:1.6}
+.coach .av{width:44px;height:44px;border-radius:50%;background:linear-gradient(145deg,var(--orange-l),var(--orange-d));display:grid;place-items:center;color:#fff;font-size:22px}
+.coach small{display:block;font-size:11px;color:var(--muted);font-weight:500}
+.badge{z-index:3;position:absolute;right:-6px;top:6px;width:124px;height:124px;border-radius:50%;background:var(--orange);color:#fff;display:grid;place-items:center;text-align:center;font-family:"Zen Maru Gothic",sans-serif;font-weight:700;line-height:1.25;box-shadow:0 14px 30px rgba(207,101,16,.35);transform:rotate(8deg)}
+.badge small{display:block;font-size:13px}
+.badge b{font-size:28px;display:block}
+
+/* お悩み */
+.worry .wrap{display:grid;grid-template-columns:.85fr 1.15fr;gap:72px;align-items:start}
+.worry .sh{position:sticky;top:120px;margin-bottom:0}
+.qbig{font-family:"Zen Maru Gothic",sans-serif;font-weight:700;font-size:150px;line-height:1;color:var(--orange-100);margin-top:24px;user-select:none}
+.checks{list-style:none;display:grid;gap:14px}
+.checks li{display:flex;gap:16px;align-items:flex-start;background:var(--cream);border-radius:var(--r-m);padding:22px 26px;font-size:17px;line-height:1.8}
+.checks .box{flex:none;width:28px;height:28px;border-radius:8px;background:var(--paper);border:2px solid var(--orange);display:grid;place-items:center;color:var(--orange);font-size:18px;margin-top:1px}
+.checks .box .ic{stroke-width:3}
+.bridge{margin-top:44px;display:flex;align-items:center;gap:20px;background:var(--navy);color:#fff;border-radius:var(--r-l);padding:28px 32px;box-shadow:var(--sh-2)}
+.bridge .ic{font-size:34px;color:var(--orange-l);flex:none}
+.bridge p{font-family:"Zen Maru Gothic",sans-serif;font-weight:700;font-size:22px;line-height:1.6}
+
+/* 特長（ジグザグ） */
+.feat{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.feat+.feat{margin-top:96px}
+.feat.rev .art{order:2}
+.feat .big{font-family:"Zen Maru Gothic",sans-serif;font-weight:700;font-size:88px;line-height:1;color:transparent;-webkit-text-stroke:2px var(--orange);letter-spacing:.02em;display:block;margin-bottom:6px}
+.feat h3{font-size:clamp(24px,3vw,32px);margin-bottom:18px}
+.feat p{color:var(--muted);max-width:28em}
+.feat .pts{list-style:none;margin-top:22px;display:grid;gap:8px}
+.feat .pts li{display:flex;gap:10px;align-items:center;font-weight:700;color:var(--navy);font-size:16px}
+.feat .pts .ic{color:var(--orange);stroke-width:2.6}
+.art{background:var(--paper);border-radius:var(--r-xl);aspect-ratio:5/4;position:relative;overflow:hidden;box-shadow:var(--sh-2)}
+.art svg{position:absolute;inset:0;width:100%;height:100%}
+
+/* 使用例 */
+.uses{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.use{background:var(--paper);border-radius:var(--r-l);overflow:hidden;box-shadow:var(--sh-1);border:1px solid var(--line)}
+.use .top{display:flex;align-items:center;gap:14px;padding:22px 26px;background:var(--navy-50)}
+.use .top .ic{font-size:30px;color:var(--navy);stroke-width:1.6}
+.use h3{font-size:21px}
+.use ul{list-style:none;padding:12px 26px 22px}
+.use li{display:flex;gap:10px;padding:12px 0;border-bottom:1px dashed var(--line);font-size:16px;line-height:1.7}
+.use li:last-child{border-bottom:0}
+.use li .ic{color:var(--orange);margin-top:5px;stroke-width:2.6}
+
+/* 安心 */
+.safe{display:grid;grid-template-columns:repeat(3,1fr);gap:0;background:var(--paper);border-radius:var(--r-l);box-shadow:var(--sh-1);overflow:hidden}
+.safe div{padding:36px 32px}
+.safe div+div{border-left:1px solid var(--line)}
+.safe .ic{font-size:40px;color:var(--navy);stroke-width:1.5;margin-bottom:18px}
+.safe h3{font-size:20px;margin-bottom:10px}
+.safe p{font-size:15.5px;color:var(--muted)}
+
+/* 講師 */
+.prof{display:grid;grid-template-columns:340px 1fr;gap:64px;align-items:center;background:var(--paper);border-radius:var(--r-xl);padding:56px;box-shadow:var(--sh-2);position:relative}
+.photo{aspect-ratio:4/5;border-radius:var(--r-l);background:linear-gradient(160deg,var(--navy-50),var(--navy-100));display:grid;place-items:center;text-align:center;color:var(--navy);font-size:14px;position:relative}
+.photo .ic{font-size:64px;opacity:.35;display:block;margin:0 auto 8px;stroke-width:1.2}
+.photo::after{content:"";position:absolute;right:-18px;bottom:-18px;width:90px;height:90px;border-radius:50%;background:var(--orange-100);z-index:-1}
+.prof .tags{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 24px}
+.prof .tags span{font-size:13px;font-weight:700;color:var(--orange-d);background:var(--orange-50);padding:4px 12px;border-radius:999px}
+.prof h3{font-size:28px}
+.prof .quote{font-family:"Zen Maru Gothic",sans-serif;font-weight:700;font-size:22px;line-height:1.7;color:var(--navy);padding-left:22px;border-left:4px solid var(--orange);margin-bottom:22px}
+.prof p+p{margin-top:14px}
+.prof p{color:var(--muted)}
+
+/* 3ヶ月 */
+.road{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;position:relative}
+.road::before{content:"";position:absolute;left:8%;right:8%;top:27px;height:3px;background:repeating-linear-gradient(90deg,var(--orange) 0 10px,transparent 10px 18px)}
+.mon{position:relative;display:flex;flex-direction:column}
+.mon .dot{width:56px;height:56px;border-radius:50%;background:var(--orange);color:#fff;display:grid;place-items:center;font-family:"Zen Maru Gothic",sans-serif;font-weight:700;font-size:15px;line-height:1.1;text-align:center;margin:0 auto 22px;box-shadow:0 0 0 8px var(--cream)}
+.mon .card{flex:1;display:flex;flex-direction:column;background:var(--paper);border-radius:var(--r-l);padding:30px 28px;box-shadow:var(--sh-1);text-align:center}
+.mon .goal{margin-top:auto!important}
+.mon .card>p:not(.goal){margin-bottom:20px}
+.mon h3{font-size:24px;margin-bottom:10px}
+.mon p{font-size:15.5px;color:var(--muted)}
+.mon .goal{margin-top:20px;background:var(--navy-50);border-radius:var(--r-s);padding:14px;font-weight:700;color:var(--navy);font-size:15px;line-height:1.7}
+.mon .goal small{display:block;font-size:12px;color:var(--orange-d);letter-spacing:.1em}
+
+/* 料金 */
+.plans{display:grid;grid-template-columns:1fr 1.12fr 1fr;gap:24px;align-items:center}
+.plan{background:var(--cream);border-radius:var(--r-l);padding:38px 28px;text-align:center;border:1px solid var(--line)}
+.plan h3{font-size:22px}
+.plan .what{font-size:15px;color:var(--muted);margin:12px 0 18px;line-height:1.7;min-height:52px}
+.plan .yen{font-family:"Zen Maru Gothic",sans-serif;font-weight:700;font-size:44px;color:var(--navy);line-height:1}
+.plan .yen small{font-size:17px;margin-left:2px}
+.plan .per{font-size:13px;color:var(--muted);margin-top:6px}
+.plan.best{background:var(--paper);border:2px solid var(--orange);box-shadow:var(--sh-2);padding:52px 32px;position:relative}
+.plan.best .yen{color:var(--orange-d);font-size:54px}
+.plan.best .tag{position:absolute;top:-17px;left:50%;transform:translateX(-50%);background:var(--orange);color:#fff;font-size:14px;font-weight:700;padding:6px 22px;border-radius:999px;white-space:nowrap}
+.plan .extra{margin-top:18px;font-size:14px;font-weight:700;color:var(--navy);background:var(--navy-50);border-radius:var(--r-s);padding:10px}
+.trial{text-align:center;margin-top:36px;font-size:17px;color:var(--navy)}
+.trial b{color:var(--orange-d)}
+.promise{margin:24px auto 0;display:flex;flex-wrap:wrap;gap:14px;justify-content:center;list-style:none}
+.promise li{display:flex;align-items:center;gap:8px;font-weight:700;color:var(--navy);font-size:15px;background:var(--cream);padding:10px 20px;border-radius:999px}
+.promise .ic{color:var(--orange);stroke-width:2.6}
+.center{text-align:center}
+
+/* 体験の流れ */
+.flow{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;list-style:none;counter-reset:s}
+.flow li{position:relative;background:var(--paper);border-radius:var(--r-l);padding:34px 30px 30px;box-shadow:var(--sh-1)}
+.flow li:not(:last-child)::after{content:"";position:absolute;right:-30px;top:50%;width:20px;height:20px;border-top:3px solid var(--orange-l);border-right:3px solid var(--orange-l);transform:translateY(-50%) rotate(45deg)}
+.flow .step{font-family:"Zen Maru Gothic",sans-serif;font-weight:700;font-size:13px;letter-spacing:.16em;color:var(--orange-d)}
+.flow .ic{font-size:40px;color:var(--navy);stroke-width:1.5;display:block;margin:14px 0 14px}
+.flow h3{font-size:20px;margin-bottom:8px}
+.flow p{font-size:15.5px;color:var(--muted)}
+
+/* よくある質問 */
+.faqw{display:grid;grid-template-columns:.8fr 1.2fr;gap:72px;align-items:start}
+.faqw .sh{position:sticky;top:120px}
+details{background:var(--cream);border-radius:var(--r-m);margin-bottom:12px;transition:background .2s}
+details[open]{background:var(--paper);box-shadow:var(--sh-1);outline:1px solid var(--line)}
+summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:14px;padding:20px 22px;font-weight:700;color:var(--navy);font-size:17px;line-height:1.6}
+summary::-webkit-details-marker{display:none}
+summary .qa{flex:none;width:32px;height:32px;border-radius:50%;background:var(--navy);color:#fff;display:grid;place-items:center;font-family:"Zen Maru Gothic",sans-serif;font-size:15px}
+summary .pm{margin-left:auto;font-size:20px;color:var(--orange);transition:transform .2s}
+details[open] summary .pm{transform:rotate(45deg)}
+details p{padding:0 24px 22px 68px;color:var(--muted);font-size:16px}
+
+/* 最後のひと押し */
+.final{background:var(--navy-d);color:#fff;text-align:center;overflow:hidden}
+.final::before{content:"";position:absolute;left:50%;top:-220px;width:760px;height:760px;transform:translateX(-50%);border-radius:50%;background:radial-gradient(circle,rgba(240,138,69,.16),rgba(240,138,69,0) 62%)}
+.final .wrap{position:relative}
+.final h2{color:#fff;font-size:clamp(30px,4.6vw,48px);margin-bottom:22px}
+.final p{color:#cfdbe7;max-width:34em;margin:0 auto 40px}
+.final .micro{justify-content:center;color:#cfdbe7}
+.final .textlink{color:#fff}
+footer{background:var(--navy-dd);color:#9fb3c8;font-size:13px;padding:40px 0}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;align-items:center}
+footer .logo{color:#fff;font-size:19px}
+footer .links a{color:#c9d6e3;margin-left:20px;text-decoration:none}
+
+/* スマホの下に固定する予約ボタン */
+.sticky{display:none}
+
+@media (max-width:900px){
+  body{font-size:16px}
+  section{padding:76px 0}
+  .wrap{padding:0 20px}
+  nav a:not(.hbtn){display:none}
+  .hero{padding:40px 0 72px}
+  .hero .wrap,.worry .wrap,.feat,.faqw,.prof{grid-template-columns:1fr}
+  .hero .wrap{gap:36px}
+  .stage{min-height:auto}
+  .stage .blob{inset:-10px -60px -30px 40px}
+  .win{margin:30px 0 0 0;max-width:none}
+  .coach{left:auto;right:6px;bottom:-26px}
+  .badge{width:100px;height:100px;right:-4px;top:-14px}
+  .badge b{font-size:24px}
+  .worry .sh,.faqw .sh{position:static;margin-bottom:28px}
+  .qbig{display:none}
+  .feat{gap:28px}
+  .feat+.feat{margin-top:64px}
+  .feat.rev .art{order:0}
+  .feat .big{font-size:64px}
+  .uses,.safe,.road,.plans,.flow{grid-template-columns:1fr}
+  .safe div+div{border-left:0;border-top:1px solid var(--line)}
+  .road::before{left:27px;right:auto;top:0;bottom:0;width:3px;height:auto;background:repeating-linear-gradient(180deg,var(--orange) 0 10px,transparent 10px 18px)}
+  .mon{display:grid;grid-template-columns:56px 1fr;gap:18px;align-items:start}
+  .mon .dot{margin:0}
+  .mon .card{text-align:left}
+  .prof{padding:32px 24px;gap:32px}
+  .photo{max-width:260px;margin:0 auto;width:100%}
+  .plan.best{order:-1}
+  .flow{gap:28px}
+  .flow li:not(:last-child)::after{right:auto;left:50%;top:auto;bottom:-22px;transform:translateX(-50%) rotate(135deg)}
+  .cta{width:100%;font-size:18px;padding:19px 24px}
+  .bridge{padding:22px 22px}
+  .bridge p{font-size:19px}
+  details p{padding-left:24px}
+  .sticky{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:30;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:rgba(255,255,255,.96);box-shadow:0 -6px 20px rgba(28,53,80,.12)}
+  .sticky .cta{padding:15px 20px;font-size:17px}
+  footer .links a{margin:0 16px 0 0}
+  footer{padding-bottom:110px}
+  .worry .wrap,.faqw{gap:0}
+}
+</style>
+</head>
+<body>
+
+<header><div class="wrap">
+  <a class="logo" href="#"><i></i>となりの<span>AI</span></a>
+  <nav><a href="#feature">特長</a><a href="#price">料金</a><a href="#faq">よくある質問</a><a class="hbtn" href="https://timerex.net/s/tonari.ai.lesson_9a62/0be36250">体験レッスン</a></nav>
+</div></header>
+
+<section class="hero bg-dots"><div class="wrap">
+  <div>
+    <span class="eyebrow">AIがはじめての方のための<br>マンツーマンAIレッスン</span>
+    <h1><span class="q">「今さら聞けない」</span><br>AIを、<em>週1回30分</em>で。</h1>
+    <p class="lead">はじめる気持ちがわかる講師が、となりに座るように。ChatGPTとGeminiを、あなたの仕事と暮らしで使えるようになるまで、1対1で伴走します。</p>
+    <ul class="facts"><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3.6"/><path d="M4.5 20c1.2-3.8 4-5.6 7.5-5.6s6.3 1.8 7.5 5.6"/></svg>オンライン1対1</li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg>週1回30分</li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="4.5" y="10.5" width="15" height="10" rx="2.2"/><path d="M8 10.5V7.5a4 4 0 0 1 7.6-1.7"/></svg>長期契約のしばりなし</li></ul>
+    <a class="cta" href="https://timerex.net/s/tonari.ai.lesson_9a62/0be36250">500円の体験レッスンを予約する<svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <span class="micro"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7"/></svg>ご予約は2分。売り込みはしません。</span>
+    <a class="textlink" href="#shiryo">まずは資料を受け取る<svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  </div>
+  <div class="stage">
+    <div class="blob"></div>
+    <div class="badge"><span><small>30分の体験</small><b>500円</b><small>税込</small></span></div>
+    <div class="win" aria-label="AIとのやりとりの例">
+      <div class="bar"><i></i><i></i><i></i><span>レッスンの画面（イメージ）</span></div>
+      <div class="body">
+        <div class="bub me"><span class="av"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3.6"/><path d="M4.5 20c1.2-3.8 4-5.6 7.5-5.6s6.3 1.8 7.5 5.6"/></svg></span><p>来月の定例会の日程変更のお知らせを、やわらかい言葉で3行にして</p></div>
+        <div class="bub ai"><span class="av">AI</span><p>いつもお疲れさまです。来月の定例会は、都合により〇日（〇）に変更となりました。お手数ですが、ご予定の調整をお願いいたします。</p></div>
+        <div class="bub me"><span class="av"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3.6"/><path d="M4.5 20c1.2-3.8 4-5.6 7.5-5.6s6.3 1.8 7.5 5.6"/></svg></span><p>もう少しくだけた感じで</p></div>
+        <p class="img-note">※やりとりはイメージです</p>
+      </div>
+    </div>
+    <div class="coach"><span class="av"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 12V6.3a1.4 1.4 0 0 1 2.8 0V11M10.8 10.5V5a1.4 1.4 0 0 1 2.8 0v5.5M13.6 10.5V6.3a1.4 1.4 0 0 1 2.8 0v6.2M8 12l-1.5-1.6a1.4 1.4 0 0 0-2.1 1.9l3.4 4.6c1.3 1.8 3 2.6 5.2 2.6 3 0 5.4-2.4 5.4-5.4V9.5a1.4 1.4 0 0 0-2.8 0"/></svg></span><span><small>講師</small>その頼み方、いいですね！</span></div>
+  </div>
+</div></section>
+
+<section class="worry bg-white"><div class="wrap">
+  <div><div class="sh"><div class="no"><b>01</b>こんなお悩み、ありませんか？</div><h2>ひとつでも<br>当てはまったら。</h2></div><div class="qbig">?</div></div>
+  <div>
+    <ul class="checks"><li><span class="box"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7"/></svg></span>ChatGPTを1回触ってみたけど、何を聞けばいいか分からず、やめてしまった</li><li><span class="box"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7"/></svg></span>まわりが使い始めていて、置いていかれる気がする。でも今さら聞けない</li><li><span class="box"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7"/></svg></span>報告書・メール・SNSの文章づくりに、毎日時間を取られている</li><li><span class="box"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7"/></svg></span>本や動画で勉強しようとしたけど、続かなかった</li><li><span class="box"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7"/></svg></span>会社の情報を入れて大丈夫なのか、よく分からない</li></ul>
+    <div class="bridge"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6.5C4 5.1 5.1 4 6.5 4h11C18.9 4 20 5.1 20 6.5v7c0 1.4-1.1 2.5-2.5 2.5H10l-4.5 3.8V16h0C4.6 16 4 15.4 4 14.5z"/></svg><p>その「わからない」から、となりで一緒に始めます。</p></div>
+  </div>
+</div></section>
+
+<section id="feature"><div class="wrap">
+  <div class="sh"><div class="no"><b>02</b>となりのAIの特長</div><h2>むずかしい言葉は、<br>いりません。</h2><p>AIは、専門用語やプログラミングを覚えなくても、人に頼むのと同じ言葉で手伝ってくれる道具です。その「頼み方」を、1対1で身につけます。</p></div>
+  <div class="feat">
+    <div class="art"><svg viewBox="0 0 500 400" aria-hidden="true">
+<rect width="500" height="400" fill="#eef3f8"/>
+<circle cx="420" cy="70" r="90" fill="#ffe3cc"/>
+<rect x="70" y="90" width="360" height="230" rx="22" fill="#fff" stroke="#dce6f0" stroke-width="2"/>
+<rect x="70" y="90" width="360" height="36" rx="22" fill="#faf6f0"/><rect x="70" y="110" width="360" height="16" fill="#faf6f0"/>
+<circle cx="94" cy="108" r="5" fill="#e0d8cb"/><circle cx="112" cy="108" r="5" fill="#e0d8cb"/><circle cx="130" cy="108" r="5" fill="#e0d8cb"/>
+<rect x="92" y="146" width="150" height="152" rx="16" fill="#284866"/>
+<circle cx="167" cy="205" r="26" fill="#fff" opacity=".9"/><path d="M127 290c6-30 22-44 40-44s34 14 40 44z" fill="#fff" opacity=".9"/>
+<rect x="258" y="146" width="150" height="152" rx="16" fill="#f08a45"/>
+<circle cx="333" cy="205" r="26" fill="#fff" opacity=".9"/><path d="M293 290c6-30 22-44 40-44s34 14 40 44z" fill="#fff" opacity=".9"/>
+<g transform="translate(300 40)"><rect width="150" height="56" rx="18" fill="#fff" stroke="#e8e1d5" stroke-width="2"/><path d="M30 56l-8 16 22-16z" fill="#fff"/><text x="75" y="35" text-anchor="middle" font-family="Zen Maru Gothic, sans-serif" font-weight="700" font-size="18" fill="#284866">何度でもどうぞ</text></g>
+<text x="167" y="352" text-anchor="middle" font-family="Zen Maru Gothic, sans-serif" font-weight="700" font-size="17" fill="#284866">講師</text>
+<text x="333" y="352" text-anchor="middle" font-family="Zen Maru Gothic, sans-serif" font-weight="700" font-size="17" fill="#cf6510">あなた</text>
+</svg></div>
+    <div><span class="big">01</span><h3>はじめる気持ちがわかる講師が、1対1で</h3><p>私も、大人になってからAIを始めました。同じところでつまずいてきたので、わからないことは何度でも聞いてください。</p>
+    <ul class="pts"><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7"/></svg>ほかの受講者はいません</li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7"/></svg>画面を共有して、一緒に操作します</li></ul></div>
+  </div>
+  <div class="feat rev">
+    <div class="art"><svg viewBox="0 0 500 400" aria-hidden="true">
+<rect width="500" height="400" fill="#fff4ea"/>
+<circle cx="70" cy="340" r="110" fill="#ffe3cc"/>
+<g transform="rotate(-5 200 210)"><rect x="90" y="70" width="220" height="280" rx="16" fill="#fff" stroke="#e8e1d5" stroke-width="2"/>
+<rect x="116" y="100" width="120" height="14" rx="7" fill="#284866"/>
+<rect x="116" y="134" width="168" height="9" rx="4.5" fill="#dce6f0"/><rect x="116" y="154" width="150" height="9" rx="4.5" fill="#dce6f0"/><rect x="116" y="174" width="160" height="9" rx="4.5" fill="#dce6f0"/>
+<rect x="116" y="206" width="168" height="9" rx="4.5" fill="#dce6f0"/><rect x="116" y="226" width="120" height="9" rx="4.5" fill="#dce6f0"/>
+<rect x="116" y="262" width="168" height="62" rx="10" fill="#eef3f8"/></g>
+<g transform="translate(250 120)"><rect width="190" height="170" rx="20" fill="#284866"/>
+<text x="24" y="44" font-family="Noto Sans JP, sans-serif" font-size="14" fill="#9fb3c8">あなたの仕事</text>
+<rect x="24" y="62" width="142" height="9" rx="4.5" fill="#3b5f80"/><rect x="24" y="82" width="112" height="9" rx="4.5" fill="#3b5f80"/>
+<circle cx="150" cy="128" r="24" fill="#ea7a1b"/><path d="M139 128l8 8 15-16" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></g>
+<text x="345" y="336" text-anchor="middle" font-family="Zen Maru Gothic, sans-serif" font-weight="700" font-size="18" fill="#284866">その日のうちに使える</text>
+</svg></div>
+    <div><span class="big">02</span><h3>教科書ではなく、あなたの仕事で</h3><p>毎回、あなたの実際の仕事や暮らしの「困った」を題材にします。レッスンで作ったものを、その日のうちに使えます。</p>
+    <ul class="pts"><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7"/></svg>メール・資料・SNS・家のことまで</li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7"/></svg>よく使う頼み方はプロンプト集に</li></ul></div>
+  </div>
+  <div class="feat">
+    <div class="art"><svg viewBox="0 0 500 400" aria-hidden="true">
+<rect width="500" height="400" fill="#eef3f8"/>
+<circle cx="440" cy="330" r="120" fill="#dce6f0"/>
+<rect x="70" y="70" width="300" height="270" rx="22" fill="#fff" stroke="#dce6f0" stroke-width="2"/>
+<rect x="70" y="70" width="300" height="56" rx="22" fill="#284866"/><rect x="70" y="104" width="300" height="22" fill="#284866"/>
+<text x="220" y="106" text-anchor="middle" font-family="Zen Maru Gothic, sans-serif" font-weight="700" font-size="20" fill="#fff">毎週、同じ時間に</text>
+<g font-family="Noto Sans JP, sans-serif" font-size="13" fill="#56636f" text-anchor="middle">
+<text x="102" y="156">月</text><text x="144" y="156">火</text><text x="186" y="156">水</text><text x="228" y="156">木</text><text x="270" y="156">金</text><text x="312" y="156">土</text><text x="346" y="156">日</text></g>
+<g fill="#f3ece1">
+<rect x="88" y="172" width="28" height="28" rx="7"/><rect x="130" y="172" width="28" height="28" rx="7"/><rect x="214" y="172" width="28" height="28" rx="7"/><rect x="256" y="172" width="28" height="28" rx="7"/><rect x="298" y="172" width="28" height="28" rx="7"/><rect x="332" y="172" width="28" height="28" rx="7"/>
+<rect x="88" y="214" width="28" height="28" rx="7"/><rect x="130" y="214" width="28" height="28" rx="7"/><rect x="214" y="214" width="28" height="28" rx="7"/><rect x="256" y="214" width="28" height="28" rx="7"/><rect x="298" y="214" width="28" height="28" rx="7"/><rect x="332" y="214" width="28" height="28" rx="7"/>
+<rect x="88" y="256" width="28" height="28" rx="7"/><rect x="130" y="256" width="28" height="28" rx="7"/><rect x="214" y="256" width="28" height="28" rx="7"/><rect x="256" y="256" width="28" height="28" rx="7"/><rect x="298" y="256" width="28" height="28" rx="7"/><rect x="332" y="256" width="28" height="28" rx="7"/>
+<rect x="88" y="298" width="28" height="28" rx="7"/><rect x="130" y="298" width="28" height="28" rx="7"/><rect x="214" y="298" width="28" height="28" rx="7"/><rect x="256" y="298" width="28" height="28" rx="7"/></g>
+<g fill="#ea7a1b"><rect x="172" y="172" width="28" height="28" rx="7"/><rect x="172" y="214" width="28" height="28" rx="7"/><rect x="172" y="256" width="28" height="28" rx="7"/><rect x="172" y="298" width="28" height="28" rx="7"/></g>
+<g transform="translate(372 250)"><circle r="62" cx="62" cy="62" fill="#ea7a1b"/><text x="62" y="56" text-anchor="middle" font-family="Zen Maru Gothic, sans-serif" font-weight="700" font-size="16" fill="#fff">宿題は</text><text x="62" y="84" text-anchor="middle" font-family="Zen Maru Gothic, sans-serif" font-weight="700" font-size="26" fill="#fff">5分</text></g>
+</svg></div>
+    <div><span class="big">03</span><h3>週1回30分だから、続く</h3><p>宿題は1回5分だけ。毎週のレッスンが、自然と続けるきっかけになります。</p>
+    <ul class="pts"><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7"/></svg>日程変更は前日18時まで無料</li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7"/></svg>お休みした回は翌月まで振替OK</li></ul></div>
+  </div>
+</div></section>
+
+<section class="bg-white"><div class="wrap">
+  <div class="sh center"><div class="no"><b>03</b>たとえば、こんなことが楽になります</div><h2>仕事にも、暮らしにも。</h2></div>
+  <div class="uses">
+    <div class="use"><div class="top"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="7" width="17" height="12.5" rx="2.2"/><path d="M9 7V5.2c0-.7.5-1.2 1.2-1.2h3.6c.7 0 1.2.5 1.2 1.2V7M3.5 12.5h17"/></svg><h3>会社で</h3></div><ul><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7"/></svg>長いメールを3行にまとめる</li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7"/></svg>会議のメモを議事録にする</li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7"/></svg>企画書の骨組みを作る</li></ul></div>
+    <div class="use"><div class="top"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9.5l1.4-5h13.2l1.4 5M4 9.5h16M4 9.5c0 1.5 1.2 2.5 2.7 2.5S9.3 11 9.3 9.5c0 1.5 1.2 2.5 2.7 2.5s2.7-1 2.7-2.5c0 1.5 1.2 2.5 2.7 2.5S20 11 20 9.5M5.5 12v8h13v-8M10 20v-4.5h4V20"/></svg><h3>お店・事業で</h3></div><ul><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7"/></svg>SNSの投稿文の案を5つ出す</li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7"/></svg>チラシの見出しを考える</li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7"/></svg>お客様への返信文を整える</li></ul></div>
+    <div class="use"><div class="top"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11l8-6.5 8 6.5M6 9.5V20h12V9.5M10 20v-5h4v5"/></svg><h3>暮らしで</h3></div><ul><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7"/></svg>冷蔵庫の写真から献立を考える</li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7"/></svg>旅行の計画を立てる</li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7"/></svg>親の介護の情報を整理する</li></ul></div>
+  </div>
+  <p class="note center">※使い方の例です。効果には個人差があります。</p>
+</div></section>
+
+<section class="bg-dots"><div class="wrap">
+  <div class="sh"><div class="no"><b>04</b>安心して使うために</div><h2>不安なことから、<br>先にお伝えします。</h2></div>
+  <div class="safe">
+    <div><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5l7 2.8v5.2c0 4.3-3 7.6-7 9-4-1.4-7-4.7-7-9V6.3z"/><path d="M9 12l2.2 2.2L15.5 10"/></svg><h3>入れてはいけない情報</h3><p>会社の機密やお客様の個人情報など、入れてはいけないものを最初にお伝えします。</p></div>
+    <div><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M2.8 12S6 6 12 6s9.2 6 9.2 6-3.2 6-9.2 6-9.2-6-9.2-6z"/><circle cx="12" cy="12" r="2.8"/></svg><h3>AIのまちがいへの備え</h3><p>AIはまちがえることもあります。答えを確かめるコツも、一緒に練習します。</p></div>
+    <div><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M8.5 12.5l2.3 2.3 4.7-5"/></svg><h3>無料版から始められる</h3><p>ChatGPTとGeminiの無料版で始められます。会社でCopilotしか使えない方にも対応します。</p></div>
+  </div>
+</div></section>
+
+<section class="bg-white"><div class="wrap">
+  <div class="sh"><div class="no"><b>05</b>講師紹介</div><h2>先生ではなく、<br>先に歩いている仲間です。</h2></div>
+  <div class="prof">
+    <div class="photo"><img src="../assets/take.svg" alt="となりのAI 講師 タケ（イメージキャラクター）" style="width:100%;height:100%;object-fit:cover;border-radius:inherit;display:block"></div>
+    <div>
+      <h3>タケ<small style="font-size:15px;color:var(--muted);margin-left:10px;font-weight:500">となりのAI 講師</small></h3>
+      <div class="tags"><span>通販事業 10年</span><span>広告 7年</span><span>AIで事業を立ち上げ中</span></div>
+      <p class="quote">「使ってみたら、こんなに簡単だったのか」<br>その感動を、一緒に。</p>
+      <p>通販事業に10年、広告の仕事に7年たずさわってきました。正直に言うと、私も最初はAIがとっつきにくく、「自分には関係ない」と思っていました。</p>
+      <p>でも実際に使ってみると、文章づくり、アイデア出し、画像づくり、そして事業の計画まで、毎日の仕事が驚くほど楽になりました。いまでは、この講座の企画もAIと一緒に作っています。</p>
+    </div>
+  </div>
+</div></section>
+
+<section class="bg-dots"><div class="wrap">
+  <div class="sh center"><div class="no"><b>06</b>3ヶ月の流れ</div><h2>3ヶ月後、AIが毎日の相棒に。</h2></div>
+  <div class="road">
+    <div class="mon"><div class="dot">1<br>ヶ月</div><div class="card"><h3>慣れる</h3><p>安全な使い方、頼み方の基本、メールと文章</p><p class="goal"><small>ゴール</small>毎日1回はAIに話しかけている</p></div></div>
+    <div class="mon"><div class="dot">2<br>ヶ月</div><div class="card"><h3>仕事に入れる</h3><p>議事録・資料・表・調べもの</p><p class="goal"><small>ゴール</small>自分の仕事の2〜3個をAIに任せている</p></div></div>
+    <div class="mon"><div class="dot">3<br>ヶ月</div><div class="card"><h3>自分の型を作る</h3><p>よく使う頼み方の登録、画像、新しいツール</p><p class="goal"><small>ゴール</small>一人で新しい使い方を試せる</p></div></div>
+  </div>
+</div></section>
+
+<section class="bg-white" id="price"><div class="wrap">
+  <div class="sh center"><div class="no"><b>07</b>料金（すべて税込・月額）</div><h2>わかりやすい、<br>月ごとの料金です。</h2></div>
+  <div class="plans">
+    <div class="plan"><h3>ライト</h3><p class="what">月2回 × 30分</p><p class="yen">6,600<small>円</small></p><p class="per">1回あたり 3,300円</p></div>
+    <div class="plan best"><span class="tag">おすすめ</span><h3>スタンダード</h3><p class="what">週1回 × 30分<br>＋プロンプト集</p><p class="yen">11,000<small>円</small></p><p class="per">1回あたり 2,750円</p><p class="extra">3ヶ月まとめ払いなら 30,000円</p></div>
+    <div class="plan"><h3>プレミアム</h3><p class="what">スタンダード＋LINEで質問<br>＋月1回60分の業務相談</p><p class="yen">19,800<small>円</small></p><p class="per">1回あたり 4,950円</p></div>
+  </div>
+  <p class="trial">はじめての方は、<b>30分の体験レッスン（500円・税込）</b>から</p>
+  <ul class="promise"><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7"/></svg>入会金・教材費なし</li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7"/></svg>長期契約のしばりなし</li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7"/></svg>日程変更は前日18時まで無料</li></ul>
+  <div class="center" style="margin-top:44px"><a class="cta" href="https://timerex.net/s/tonari.ai.lesson_9a62/0be36250">500円の体験レッスンを予約する<svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+</div></section>
+
+<section class="bg-dots"><div class="wrap">
+  <div class="sh center"><div class="no"><b>08</b>体験レッスンの流れ（30分・500円）</div><h2>まずは30分、<br>試してみてください。</h2></div>
+  <ol class="flow">
+    <li><span class="step">STEP 1</span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 9.5h17M8 3v4M16 3v4"/></svg><h3>予約する（2分）</h3><p>ご都合のよい日時を選び、かんたんな質問に答えます。500円のお支払い方法も、このときにご案内します。</p></li>
+    <li><span class="step">STEP 2</span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6.5" width="12.5" height="11" rx="2.2"/><path d="M15.5 10.5l5.5-3v9l-5.5-3"/></svg><h3>30分の体験</h3><p>Zoomで、あなたに合わせた内容で、実際にAIを使ってみます。</p></li>
+    <li><span class="step">STEP 3</span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5l1.9 5.1 5.1 1.9-5.1 1.9L12 17.5l-1.9-5.1L5 10.5l5.1-1.9z"/><path d="M18.5 16l.7 1.8 1.8.7-1.8.7-.7 1.8-.7-1.8-1.8-.7 1.8-.7z"/></svg><h3>続けるかは、あなたが決める</h3><p>その場でのお申し込みは不要です。売り込みはしません。</p></li>
+  </ol>
+</div></section>
+
+<section class="bg-white" id="faq"><div class="wrap faqw">
+  <div class="sh"><div class="no"><b>09</b>よくある質問</div><h2>気になることに、<br>お答えします。</h2></div>
+  <div><details open><summary><span class="qa">Q</span>パソコンが苦手でも大丈夫ですか？<svg class="ic pm" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary><p>画面を共有しながら、一つずつ一緒に操作します。スマホだけでも受けられます（パソコンがおすすめです）。</p></details><details><summary><span class="qa">Q</span>会社の情報を入れても大丈夫？<svg class="ic pm" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary><p>初回に、入れてはいけない情報と安全な使い方をお伝えします。</p></details><details><summary><span class="qa">Q</span>有料版のAIが必要ですか？<svg class="ic pm" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary><p>無料版で始められます。必要になったら、有料版にするかを一緒に考えます。</p></details><details><summary><span class="qa">Q</span>長い契約が必要ですか？<svg class="ic pm" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary><p>月ごとのお申し込みです。長期契約のしばりはありません。</p></details><details><summary><span class="qa">Q</span>体験レッスンのあと、勧誘されますか？<svg class="ic pm" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary><p>売り込みはしません。続けるかどうかは、あなたが決めてください。</p></details><details><summary><span class="qa">Q</span>日程の変更はできますか？<svg class="ic pm" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary><p>前日の18時までなら、何度でも無料で変更できます。</p></details></div>
+</div></section>
+
+<section class="final" id="yoyaku"><div class="wrap">
+  <h2>最初の一歩は、<br>となりで一緒に。</h2>
+  <p>AIは、使ってみると「こんなに簡単だったのか」と驚く道具です。その最初の30分を、500円で一緒に過ごしませんか。</p>
+  <a class="cta" href="https://timerex.net/s/tonari.ai.lesson_9a62/0be36250">500円の体験レッスンを予約する<svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  <span class="micro"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7"/></svg>ご予約は2分。売り込みはしません。</span>
+  <a class="textlink" id="shiryo" href="#shiryo">まずは資料（PDF）を受け取る<svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+</div></section>
+
+<footer><div class="wrap">
+  <a class="logo" href="#"><i></i>となりの<span>AI</span></a>
+  <div class="links"><a href="../tokushoho/">特定商取引法に基づく表記</a><a href="../terms/">利用規約</a><a href="../privacy/">個人情報の取り扱い</a></div>
+  <p>© となりのAI</p>
+</div></footer>
+
+<div class="sticky"><a class="cta" href="https://timerex.net/s/tonari.ai.lesson_9a62/0be36250">500円の体験レッスンを予約する<svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+</body>
+</html>

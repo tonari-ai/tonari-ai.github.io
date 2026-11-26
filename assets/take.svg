@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500">
+  <!-- となりのAI 講師イメージキャラ「タケ」 -->
+  <rect width="400" height="500" rx="28" fill="#EEF3F8"/>
+  <circle cx="320" cy="90" r="70" fill="#FFE3CC"/>
+  <circle cx="70" cy="420" r="90" fill="#DCE6F0"/>
+  <!-- 体 -->
+  <path d="M70 500 C80 395 135 352 200 352 C265 352 320 395 330 500 Z" fill="#284866"/>
+  <path d="M168 356 L200 410 L232 356 Z" fill="#FFFFFF"/>
+  <path d="M185 356 L200 380 L215 356 Z" fill="#EA7A1B"/>
+  <!-- 首 -->
+  <rect x="178" y="300" width="44" height="62" rx="18" fill="#F1C9A5"/>
+  <!-- 耳 -->
+  <ellipse cx="122" cy="232" rx="16" ry="22" fill="#F1C9A5"/>
+  <ellipse cx="278" cy="232" rx="16" ry="22" fill="#F1C9A5"/>
+  <!-- 顔 -->
+  <ellipse cx="200" cy="225" rx="80" ry="92" fill="#F6D5B6"/>
+  <!-- 髪（短め・少し白髪） -->
+  <path d="M118 210 C112 140 155 118 200 118 C250 118 290 140 282 212 C272 178 250 160 214 160 C180 160 150 168 128 200 Z" fill="#3A3F47"/>
+  <path d="M262 168 C272 178 280 192 282 212 C276 196 268 184 256 176 Z" fill="#8E949C"/>
+  <!-- 眉 -->
+  <path d="M152 202 Q168 194 184 200" stroke="#3A3F47" stroke-width="6" fill="none" stroke-linecap="round"/>
+  <path d="M216 200 Q232 194 248 202" stroke="#3A3F47" stroke-width="6" fill="none" stroke-linecap="round"/>
+  <!-- めがね -->
+  <rect x="146" y="210" width="44" height="34" rx="12" fill="none" stroke="#284866" stroke-width="5"/>
+  <rect x="210" y="210" width="44" height="34" rx="12" fill="none" stroke="#284866" stroke-width="5"/>
+  <path d="M190 224 L210 224" stroke="#284866" stroke-width="5"/>
+  <!-- 目（にっこり） -->
+  <path d="M158 230 Q168 222 178 230" stroke="#2B3440" stroke-width="5" fill="none" stroke-linecap="round"/>
+  <path d="M222 230 Q232 222 242 230" stroke="#2B3440" stroke-width="5" fill="none" stroke-linecap="round"/>
+  <!-- ほお -->
+  <ellipse cx="156" cy="262" rx="14" ry="8" fill="#F4A98A" opacity=".55"/>
+  <ellipse cx="244" cy="262" rx="14" ry="8" fill="#F4A98A" opacity=".55"/>
+  <!-- 口 -->
+  <path d="M176 272 Q200 296 224 272" stroke="#9B4A2E" stroke-width="5" fill="#FFFFFF" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- ヘッドセット（オンラインの講師） -->
+  <path d="M118 222 C116 150 160 122 200 122 C240 122 284 150 282 222" stroke="#EA7A1B" stroke-width="8" fill="none" stroke-linecap="round"/>
+  <rect x="104" y="212" width="20" height="40" rx="9" fill="#EA7A1B"/>
+  <path d="M114 252 Q120 292 168 290" stroke="#EA7A1B" stroke-width="5" fill="none" stroke-linecap="round"/>
+  <circle cx="170" cy="290" r="7" fill="#EA7A1B"/>
+  <!-- 吹き出し -->
+  <g transform="translate(250 330)">
+    <rect width="128" height="52" rx="18" fill="#FFFFFF"/>
+    <path d="M18 52 L10 68 L36 52 Z" fill="#FFFFFF"/>
+    <text x="64" y="34" text-anchor="middle" font-family="Zen Maru Gothic, Noto Sans JP, sans-serif" font-weight="700" font-size="22" fill="#284866">一緒に！</text>
+  </g>
+</svg>
